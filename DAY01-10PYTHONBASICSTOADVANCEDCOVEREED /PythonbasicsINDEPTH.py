@@ -405,34 +405,116 @@ match method :
 
 # ---------------------------------------------------------------------------
 
-#! 
-print("Hello workd")
+#! FOR LOOPS : 
+
+# ? Project-aligned example: Vector dot product (CORE)
+# a = [1, 0, 1, 0]
+# b = [0, 1, 1, 0]
+
+# dot = 0 
+# for i in range (len(a)): 
+#   dot += a[i] * b[i]
+
+# print(dot)
+
+# ? Backend example: Filtering content
+
+# contents = [
+#     {"id": 1, "active": True},
+#     {"id": 2, "active": False},
+#     {"id": 3, "active": True},
+# ]
+
+# active_contents = []
+
+# for content in contents: 
+#   if content["active"] : 
+#     active_contents.append(content)
+
+# print(active_contents)
 
 
+#^ Problem 1 (FOR loop — project aligned)
+#^Given vectors, compute L2 norm.
+#^ v = [3, 4]
+#^ Expected output:
+#^ 5.0
+#^ Rules:
+#^ use for
+#^ no math libraries
+#^ return value
 
+# v = [3 ,4]
+# value = 0 
+# for i in range(len(v)) : 
+#   value += v[i]*v[i]
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# final = value ** 0.5 
+# print(final)
 
 
 # ---------------------------------------------------------------------------
+#! While LOOP — CONDITION-DRIVEN EXECUTION
+#? While loop in tuples use case : 
+
+# tuple = (2,3,4)
+# i =0 
+
+# while i < len(tuple) : 
+#   print(tuple[i])
+#   i += 1 
 
 
+# ? Backend example: Retry mechanism
+
+# attempts = 0
+# MAX_RETRIES = 3
+
+# while attempts < MAX_RETRIES: 
+#   sucess = False  # pretend API CALL 
+
+#   if sucess : 
+#     break 
+
+#   attempts += 1 
+
+# print(sucess)
+
+#? Project-aligned example: Score threshold search
+
+# scores = [0.3, 0.5, 0.6, 0.9]
+# i = 0
+
+# while i < len(scores): 
+#   if scores[i] >= 0.8 : 
+#     print("High score found" , scores[i])
+#     break 
+  
+#   i += 1 
+
+#^ Problem 3 (WHILE loop — retry logic)
+#^ Simulate retry logic with max 3 attempts.
+
+# attempts = 3 
+# i =1
+
+# while i <= attempts: 
+#   print("Attempts" , i)
+
+#   i +=1 
 
 
+# ---------------------------------------------------------------------------
+#! Mistakes in loops : 
 
+# babies = [1,2,3,4,5]
+# for x in babies[:]: #! Iterating over shallow copy to avoid python logical error in loops 
+#   if x % 2 == 0 : 
+#     babies.remove(x)
+
+# print(babies)
+
+# ---------------------------------------------------------------------------
 
 
 
