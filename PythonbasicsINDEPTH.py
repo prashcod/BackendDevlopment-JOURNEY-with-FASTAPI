@@ -348,19 +348,19 @@
 
 #? Used IN HTTP Method Routing 
 
-method = "POST"
+# method = "POST"
 
-match method : 
-  case "GET" : 
-    print("Fetch Data")
-  case "POST": 
-    print("Create Data")
-  case "PUT" : 
-    print("Update Data")
-  case "DELETE": 
-    print("Delete Data")
-  case _: 
-    print("Invalid Data")
+# match method : 
+#   case "GET" : 
+#     print("Fetch Data")
+#   case "POST": 
+#     print("Create Data")
+#   case "PUT" : 
+#     print("Update Data")
+#   case "DELETE": 
+#     print("Delete Data")
+#   case _: 
+#     print("Invalid Data")
 
 
 # ---------------------------------------------------------------------------
@@ -516,18 +516,128 @@ match method :
 
 # ---------------------------------------------------------------------------
 
+#! Python Functions : 
+#* Functions are reusuable execution templates which creates an isolated runtime enviornment or stack frames everytime it is called . 
+
+#? PURE AND IMPURE FUNCTIONS : 
+#^ Problem Statement : “Lists are mutable… but I want my function to be pure.
+#^ So how do I work with them without breaking purity?”
+
+#? Impure Functions : 
+# def add_one(nums): 
+#   nums.append(1)
+
+# nums = [1,2,3]
+# add_one(nums) # Here it changes/mutates the nums and  caller's data is changed so it's impure 
+# print(nums)
+
+#? Pure Functions : 
+# def add_oneP(nums): 
+#   return nums + [1]
+
+# nums = [1,2,3]
+# new_nums =add_oneP(nums) #as python immediately throws after stack frame is destroyed 
+# print(new_nums)
 
 
 
+#? FUNTIONS ARGUMENTS AND IT'S TYPES : 
+#? 1. Default Arguments : 
+# def recommend(score , threshold=0.7): 
+#   return score>= threshold
+
+# recommend_val = recommend(0.9)
+# print(recommend_val) #true 
+
+
+#? Keyword Arguments : 
+# def create_user (email , is_active , is_admin): 
+#   return email , is_active , is_admin
+
+# create_user_val = create_user(email = "prash.@gmail.com" , is_active=True , is_admin=False)
+# print(create_user_val)
+
+#? it's actually algins with my project 
+#? when calling
+# def get_recommendation(user_vector , content_vectors , top_k , threshold): 
+#   pass 
+
+# get_recommendation(user_vector ="user_vec" , content_vectors="contents" , top_k=5 , threshold=0.7)
 
 
 
+#? Positional Arguments : 
+# def dot_product(a,b): 
+#   return sum(x*y for x,y in zip(a,b))
+
+# a = [1,2,3]
+# b= [2,3,4]   
+# dot_val = dot_product(a,b)
+# print(dot_val)
+
+
+#? Arbitary Arguments : (*args , **kwargs)
+#? *args
+# def f (*args): 
+#   print(args)
+
+# f(1,2,3,4,5)
+
+#? Real Backend Example: Score Aggregation (Your Project)
+#?In your recommendation engine, you may combine multiple scoring signals later:
+
+# def aggreate_scores(*scores): 
+#   result = 0 
+#   for score in scores: 
+#     result += score
+#     return result/len(scores)
+
+# avg = aggreate_scores(0.7,0.8,0.9)
+# print(avg)
+
+#? **kwargs 
+#? Real Backend Example: Logging / Metadata
+
+# def log_request(**metadata): 
+#   for key , value in metadata.items(): 
+#     print(f"{key} = {value}")
+
+# log_request(
+#    user_id=101 , 
+#    endpoint="/recommend",
+#    score=0.82
+# )
+
+#^ REAL PROJECT-ALIGNED PROBLEM (DO THIS)
+#^ Problem: Flexible Recommendation Logger Requirements
+#^ Create a function that:
+#^ accepts user_id
+#^ accepts any number of similarity scores
+#^ accepts optional metadata
+#^ returns average score and metadata
+
+# def recommendation_logger(user_id,*scores , **metadata): 
+#   if not scores: 
+#     avg = 0.0 
+#   else : 
+#     result = 0 
+#     for score in scores: 
+#       result += score
+#     avg = result/len(scores)
+    
+#   return { 
+#          "user_id" : user_id , 
+#          "avg_score": avg ,
+#          "metadata": metadata
+#            }
 
 
 
+# logger = recommendation_logger(101,0.7,0.8,0.9 , algorithm="cosine",model_version= "v1")
+# print(logger)
 
-
-
+#? FUNCTIONS WITHIN FUNCTIONS (inner function or nested function )
+print("hellow world")
 # ---------------------------------------------------------------------------
 
 
