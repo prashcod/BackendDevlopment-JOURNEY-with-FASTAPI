@@ -404,7 +404,14 @@
 
 
 # ---------------------------------------------------------------------------
+#! NOTE : 
+#^ Looping through function which returns : 
+# def addition(): 
+#   return [1,2,3,4]
 
+# for i in addition(): 
+#   print(i)
+  
 #! FOR LOOPS : 
 
 # ? Project-aligned example: Vector dot product (CORE)
@@ -637,29 +644,79 @@
 # print(logger)
 
 #? FUNCTIONS WITHIN FUNCTIONS (inner function or nested function )
-print("hellow world")
+
+#? Simple Example : 
+# def outer(): 
+#   x = 10 
+#   print("This is Outer function")
+#   def inner(): 
+#     print("This is inner Function")
+#     print(x)      #HERE inner() is Closure function which remebers x variable even after it has been executed .  
+#   return inner
+
+# obj =outer()
+# obj()
+
+#^ Making real REQUEST SCOPED BACKEND FUNCTION : 
+
+#* It is teaching you how backend servers safely handle user requests.
+#? MOCKED DATA( USUALLY COMES FROM DATABASES )
+# USERS = { 
+#           1: [1,2,3,4], 
+#           2: [2,1,0,3]
+#         }
+# CONTENT = [
+#     [4, 5, 6, 7],
+#     [1, 0, 1, 0],
+#     [3, 3, 3, 3]
+#            ]
+
+#? Missing funcitons 
+# def get_user_vector(user_id): 
+#   return USERS[user_id]
+
+# def get_all_content_vector(): 
+#   return CONTENT
+
+# def dotproduct(user_vector , content_vector): 
+#   return sum(x*y for x,y in zip(user_vector,content_vector))
+  
+
+# def recommend(user_id): 
+#   user_vector = get_user_vector(user_id)
+  
+#   def score(content_vector): 
+#     return dotproduct(user_vector , content_vector)
+  
+#   results = []
+#   for c in get_all_content_vector(): 
+#     results.append(score(c))
+  
+#   return results 
+  
+
+# print(recommend(1))
+# print(recommend(2))
+
+
+
 # ---------------------------------------------------------------------------
+#! Anonymous Functions : 
 
 
+# s = "PrashforPrashant"
+# ss = lambda s:s.upper()
+# print(ss(s))
 
+#? USE COMMNALY IN BACKEND CODE  WHICH HELPS TO SORT : 
+# contents = [
+# {"id" : 1 , "score" : 0.6},
+# {"id" : 2 , "score" : 0.9},
+# {"id" : 3 , "score" : 0.7}
+# ]
+# func = contents.sort(key= lambda x : x["score"] , reverse=True)
 
-
-
-
-
-
-
-
-
-
-# ---------------------------------------------------------------------------
-
-
-
-
-
-
-
+# print(contents) #sorted according to score and in decresasing order 
 
 
 
